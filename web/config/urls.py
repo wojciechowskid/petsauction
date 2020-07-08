@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from petsauction.pets.views import IndexView
+from pets.views import IndexView
 
 urlpatterns = [
     path('admin/', admin.site.urls),

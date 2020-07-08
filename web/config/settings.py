@@ -38,8 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'petsauction.pets'
+    'users',
+    'pets',
+    'auction',
 ]
+
+AUTH_USER_MODEL = 'users.AuctionUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
