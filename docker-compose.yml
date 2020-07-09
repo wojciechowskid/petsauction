@@ -16,7 +16,8 @@ services:
     env_file: .env
     environment:
       DEBUG: 'true'
-    command: gunicorn -b 0.0.0.0:8000 config.wsgi:application
+    command: python manage.py runserver 0.0.0.0:8000
+    # command: gunicorn -b 0.0.0.0:8000 config.wsgi:application
 
   postgres:
     restart: always
