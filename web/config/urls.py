@@ -17,17 +17,20 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from rest_framework.authtoken import views
-from pets.views import IndexView
+from pets.api import PetViewSet
+from auction.api import LotViewSet, BidViewSet
 from users.api import (UpdateBalanceView, UpdatePasswordView,
                        UserViewSet)
 
 
 router = DefaultRouter()
 router.register(r'api/users', UserViewSet)
+router.register(r'api/pets', PetViewSet)
+router.register(r'api/lots', LotViewSet)
+router.register(r'api/lots/(?P<lot_id>\d+)/bids', BidViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('about/', IndexView.as_view()),
     path('api/auth-token/', views.obtain_auth_token),
     path('api/users/<int:pk>/balance/', UpdateBalanceView.as_view()),
     path('api/users/<int:pk>/password/', UpdatePasswordView.as_view()),
