@@ -58,12 +58,6 @@ class BidViewSet(viewsets.ModelViewSet):
 
         serializerClass = self.get_serializer_class()
         serializer = serializerClass(data=request.data)
-        print(serializer.is_valid())
-        print(lot.owner == user)
-        print(lot.status == Lot.active)
-        print(bid.amount <= bid.author.balance)
-        print(bid.author.balance)
-        print(bid.amount)
         if not serializer.is_valid():
             return Response({'status': 'Wrong bid status'},
                             status=status.HTTP_400_BAD_REQUEST)
